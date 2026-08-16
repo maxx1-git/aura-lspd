@@ -1,0 +1,186 @@
+{% load static %}
+{% load socialaccount %}
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>
+
+        {% block title %}
+        Aura LSPD
+        {% endblock title %}
+
+    </title>
+
+    <meta name="description"
+        content="{% block description %} بوابة شهادات ودورات وزارة الداخلية | Aura CFW {% endblock %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" />
+
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/components.css' %}" />
+    {% block css %} {% endblock css %}
+
+
+
+    {% block head %}
+
+    {% endblock head %}
+
+</head>
+
+<body>
+
+
+    {% block navbar %}
+    <header class="navbar" role="banner">
+        <div class="container navbar__inner">
+            <a class="brand" href="{% url 'index' %}" aria-label="الرئيسية AURA CFW">
+                <span class="brand__mark">LSPD</span>
+                <span class="brand__text">AURA CFW<small>MDT · بوابة الشهادات</small></span>
+            </a>
+            <button class="nav__toggle" type="button" aria-label="فتح القائمة" data-nav-toggle>
+                <span></span>
+            </button>
+            <nav class="nav__links" aria-label="التنقل الرئيسي">
+                <a class="nav__link" href="{% url 'index' %}">الرئيسية</a>
+                <a class="nav__link" href="{% url 'rules' %}">القواعد</a>
+                <a class="nav__link" href="{% url 'speedunit' %}">المطاردات السريعة</a>
+                <a class="nav__link" href="{% url 'motorunit' %}">الموترسايكل</a>
+                <a class="nav__link" href="{% url 'airunit' %}">الدعم الجوي</a>
+                <a class="nav__link" href="{% url 'apply' %}">التقديم</a>
+            </nav>
+<div class="nav__cta">
+    {% if user.is_authenticated %}
+        {% get_social_accounts user as accounts %}
+        {% with discord_account=accounts.discord.0 %}
+        <div class="user-menu">
+            <button type="button"
+                    class="user-card"
+                    id="user-menu-button"
+                    data-user-menu-toggle
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="user-menu-dropdown">
+                {% if discord_account %}
+                    <img class="user-card__avatar"
+                         src="{{ discord_account.get_avatar_url }}"
+                         alt=""
+                         width="28" height="28"
+                         referrerpolicy="no-referrer">
+                {% else %}
+                    <span class="user-card__avatar user-card__avatar--fallback" aria-hidden="true">
+                        {{ user.get_username|first|upper }}
+                    </span>
+                {% endif %}
+                <span class="user-card__name">
+                    {% firstof discord_account.extra_data.global_name user.get_full_name user.get_username %}
+                </span>
+                <svg class="user-card__chevron" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+                    <path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+
+            <div class="user-dropdown"
+                 id="user-menu-dropdown"
+                 role="menu"
+                 aria-labelledby="user-menu-button"
+                 data-user-menu-dropdown
+                 aria-hidden="true">
+                <div class="user-dropdown__header">
+                    {% if discord_account %}
+                        <img class="user-dropdown__avatar"
+                             src="{{ discord_account.get_avatar_url }}"
+                             alt=""
+                             width="36" height="36"
+                             referrerpolicy="no-referrer">
+                    {% else %}
+                        <span class="user-dropdown__avatar user-card__avatar--fallback" aria-hidden="true">
+                            {{ user.get_username|first|upper }}
+                        </span>
+                    {% endif %}
+                    <span class="user-dropdown__name">
+                        {% firstof discord_account.extra_data.global_name user.get_full_name user.get_username %}
+                    </span>
+                </div>
+                <form method="post" action="{% url 'account_logout' %}" class="user-dropdown__logout-form">
+                    {% csrf_token %}
+                    <button type="submit" class="user-dropdown__logout" role="menuitem">تسجيل خروج</button>
+                </form>
+            </div>
+        </div>
+        {% endwith %}
+    {% else %}
+        <a class="btn btn--discord" href="{% provider_login_url 'discord' process='login' %}">تسجيل دخول
+            <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true"
+                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.942 5.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.586 11.586 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3 17.392 17.392 0 0 0-2.868 11.662 15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.638 10.638 0 0 1-1.706-.83c.143-.106.283-.217.418-.331a11.664 11.664 0 0 0 10.118 0c.137.114.277.225.418.331-.544.328-1.116.606-1.71.832a12.58 12.58 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM8.678 14.813a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.929 1.929 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/>
+            </svg>
+        </a>
+    {% endif %}
+</div>
+        </div>
+    </header>
+    {% endblock navbar %}
+
+
+
+
+    {% block content %}
+
+    {% endblock content %}
+
+
+
+
+
+    {% block footer %}
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__bottom">
+          <span>© <span data-year>2026</span> AURA CFW <span class="text-dim">· جميع الحقوق محفوظة</span></span>
+          <div class="developer-card">
+            <div class="developer-card__info">
+              <span class="developer-card__badge">طوّر بواسطة</span>
+              <span class="developer-card__title">Bola Max</span>
+              <span class="developer-card__role">Full Stack Developer</span>
+            </div>
+            <div class="developer-card__links">
+              <a class="developer-card__link" href="https://bolamax.vercel.app/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+                <span>Portfolio</span>
+              </a>
+              <a class="developer-card__link" href="https://discord.gg/zjc8N37bwQ" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.942 5.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.586 11.586 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3 17.392 17.392 0 0 0-2.868 11.662 15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.638 10.638 0 0 1-1.706-.83c.143-.106.283-.217.418-.331a11.664 11.664 0 0 0 10.118 0c.137.114.277.225.418.331-.544.328-1.116.606-1.71.832a12.58 12.58 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM8.678 14.813a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.929 1.929 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/></svg>
+                <span>Discord</span>
+              </a>
+              <a class="developer-card__link" href="https://github.com/maxx1-git" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.833.092-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/></svg>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    {% endblock footer %}
+
+
+
+
+
+    <script src="{% static 'js/main.js' %}" defer></script>
+    <script src="{% static 'js/components.js' %}" defer></script>
+
+    {% block js %}
+
+    {% endblock js %}
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    AURA LSPD | الموترسايكل
+{% endblock title %}
+    
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/unit.css' %}">
+{% endblock css %}
+    
+
+{% block content %}
+    <main>
+      <div class="container">
+        <nav class="breadcrumb"><a href="{% url 'index' %}">الرئيسية</a><span class="breadcrumb__sep">/</span><a href="{% url 'index' %}">الوحدات</a><span class="breadcrumb__sep">/</span><span>الموترسايكل</span></nav>
+
+        <section class="unit-hero">
+          <div>
+            <div class="row" style="margin-bottom:8px">
+              <span class="badge badge--accent">MU</span>
+              <span class="status status--active">التقديم مفتوح</span>
+            </div>
+            <h1>وحدة الموترسايكل</h1>
+            <p class="text-muted" style="max-width:60ch">
+              وحدة الدوريات على الدراجات النارية للتدخل السريع داخل المدن،
+              تنفيذ مهام المرافقة الرسمية، والمرور بين المركبات في الاختناقات
+              الحادة.
+            </p>
+          </div>
+          <div class="unit-hero__icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l4-9h4l4 9"/></svg></div>
+        </section>
+
+        <section class="unit-body">
+          <div class="stack" style="gap:32px">
+            <div><h3>نظرة عامة</h3><p class="text-muted">تتخصص وحدة الموترسايكل بالتنقل السريع داخل المناطق المزدحمة والوصول لمواقع البلاغات قبل الدوريات التقليدية.</p></div>
+            <div><h3>المسؤوليات</h3><ul>
+              <li>دوريات يومية داخل النطاق الحضري.</li>
+              <li>مرافقة الشخصيات الرسمية والقوافل.</li>
+              <li>الاستجابة الأولى للحوادث المرورية.</li>
+              <li>تنظيم الحركة عند الحاجة.</li>
+            </ul></div>
+            <div><h3>القواعد الخاصة</h3><ul>
+              <li>ارتداء الخوذة والزي المخصص في جميع الأوقات.</li>
+              <li>عدم تنفيذ مطاردة عالية السرعة بمفرده.</li>
+              <li>الصيانة الدورية للدراجة قبل كل مناوبة.</li>
+            </ul></div>
+            <div><h3>متطلبات القبول</h3><ul>
+              <li>رتبة عريف فأعلى.</li>
+              <li>خبرة قيادة دراجات نارية سابقة.</li>
+              <li>اجتياز اختبار توازن ومناورة.</li>
+                              <li>سجل خالٍ من العقوبات لآخر ٣٠ يومًا.</li>
+            </ul></div>
+            <div><h3>الحاصلون على الشهادة</h3>
+              <div class="grid grid-3">
+                <div class="officer"><div class="officer__avatar">س.ع</div><div><div class="officer__name">س. عبدالرحمن الحربي</div><div class="officer__meta"><span>رقيب</span><span>#3971</span></div><div style="margin-top:6px"><span class="status status--active">فعّال</span></div></div></div>
+                <div class="officer"><div class="officer__avatar">م.ب</div><div><div class="officer__name">م. مشعل البقمي</div><div class="officer__meta"><span>عريف</span><span>#3620</span></div><div style="margin-top:6px"><span class="status status--active">فعّال</span></div></div></div>
+                <div class="officer"><div class="officer__avatar">ت.ش</div><div><div class="officer__name">ت. تركي الشمري</div><div class="officer__meta"><span>رقيب أول</span><span>#3855</span></div><div style="margin-top:6px"><span class="status status--pending">مراقبة</span></div></div></div>
+              </div>
+            </div>
+          </div>
+          <aside class="unit-side">
+            <div class="supervisor"><div class="supervisor__avatar">ا.ص</div><div><div class="supervisor__role">مسؤول الوحدة</div><div class="officer__name" style="font-size:16px">المقدم ادم الصقر</div></div></div>
+            <div class="supervisor"><div class="supervisor__avatar">Soon</div><div><div class="supervisor__role">نائب مسؤول الوحدة</div><div class="officer__name" style="font-size:16px">منصب شاغر</div></div></div>
+            <a class="btn btn--primary btn--lg btn--block" href="{% url 'apply' %}">تقديم على هذه الشهادة</a>
+            <a class="btn btn--ghost btn--block" href="{% url 'rules' %}">قراءة القواعد</a>
+          </aside>
+        </section>
+      </div>
+    </main>
+{% endblock content %}
+    
+
+
+{% block js %}
+  
+{% endblock js %}
+  
+
+
+  

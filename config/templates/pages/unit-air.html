@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    AURA LSPD | الدعم الجوي
+{% endblock title %}
+    
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/unit.css' %}">
+{% endblock css %}
+    
+
+{% block content %}
+    <main>
+      <div class="container">
+        <nav class="breadcrumb"><a href="{% url 'index' %}">الرئيسية</a><span class="breadcrumb__sep">/</span><a href="{% url 'index' %}">الوحدات</a><span class="breadcrumb__sep">/</span><span>الدعم الجوي</span></nav>
+
+        <section class="unit-hero">
+          <div>
+            <div class="row" style="margin-bottom:8px">
+              <span class="badge badge--danger">AU</span>
+              <span class="status status--inactive">التقديم مغلق</span>
+            </div>
+            <h1>وحدة الدعم الجوي</h1>
+            <p class="text-muted" style="max-width:60ch">
+              وحدة الطيران الرسمية التابعة للقسم، مسؤولة عن الرصد الجوي،
+              مساندة العمليات الأرضية، وتنفيذ مهام البحث والإنقاذ من الجو.
+            </p>
+          </div>
+          <div class="unit-hero__icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12l20-8-6 20-4-8-10-4z"/></svg></div>
+        </section>
+
+        <section class="unit-body">
+          <div class="stack" style="gap:32px">
+            <div><h3>نظرة عامة</h3><p class="text-muted">تُعد AU الأكثر تخصصًا بين الوحدات، ويشترط لدخولها اجتياز تدريب طيران مكثف بالإضافة إلى اختبارات الملاحة والاتصالات.</p></div>
+            <div><h3>المسؤوليات</h3><ul>
+              <li>مراقبة العمليات الميدانية من الجو.</li>
+              <li>توجيه الوحدات الأرضية أثناء المطاردات.</li>
+              <li>البحث والإنقاذ في التضاريس الصعبة.</li>
+              <li>الإسناد بالإضاءة الليلية.</li>
+            </ul></div>
+            <div><h3>القواعد الخاصة</h3><ul>
+              <li>الالتزام الصارم بخطط الطيران المعتمدة.</li>
+              <li>عدم تنفيذ أي مهمة دون تفويض غرفة العمليات.</li>
+              <li>فحص المروحية قبل وبعد كل رحلة.</li>
+            </ul></div>
+            <div><h3>متطلبات القبول</h3><ul>
+              <li>رتبة امين شرطة فأعلى.</li>
+              <li>اجتياز تدريب الطيران الأساسي.</li>
+                <li>سجل خالٍ من العقوبات لآخر ٣٠ يومًا.</li>
+            </ul></div>
+            <div><h3>الحاصلون على الشهادة</h3>
+              <div class="grid grid-3">
+                <div class="officer"><div class="officer__avatar">ن.ص</div><div><div class="officer__name">ن. صالح الدوسري</div><div class="officer__meta"><span>نقيب</span><span>#5104</span></div><div style="margin-top:6px"><span class="status status--pending">تقييم</span></div></div></div>
+                <div class="officer"><div class="officer__avatar">ع.ش</div><div><div class="officer__name">ع. عبدالمجيد الشهري</div><div class="officer__meta"><span>رائد</span><span>#5211</span></div><div style="margin-top:6px"><span class="status status--active">فعّال</span></div></div></div>
+                <div class="empty" style="padding:16px">
+                  <div class="empty__icon">+</div>
+                  <b>مقعد شاغر</b>
+                  <div style="margin-top:4px;font-size:12px">التقديم متاح</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="unit-side">
+            <div class="supervisor"><div class="supervisor__avatar">م.م</div><div><div class="supervisor__role">مسؤول الوحدة</div><div class="officer__name" style="font-size:16px">العميد محمد مصطفى</div></div></div>
+            <div class="supervisor"><div class="supervisor__avatar">Soon</div><div><div class="supervisor__role">نائب مسؤول الوحدة</div><div class="officer__name" style="font-size:16px">منصب شاغر</div></div></div>
+            <a class="btn btn--primary btn--lg btn--block" href="{% url 'apply' %}">تقديم على هذه الشهادة</a>
+            <a class="btn btn--ghost btn--block" href="{% url 'rules' %}">قراءة القواعد</a>
+          </aside>
+        </section>
+      </div>
+    </main>
+{% endblock content %}
+    
+
+
+{% block js %}
+  
+{% endblock js %}
+  
+
+
+  

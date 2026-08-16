@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+        AURA LSPD | Apply
+{% endblock title %}
+    
+
+
+{% block css %}
+        <link rel="stylesheet" href="{% static 'css/pages.css' %}">
+{% endblock css %}
+    
+
+
+{% block content %}
+       <main>
+      <div class="container">
+        <nav class="breadcrumb"><a href="{% url 'index' %}">الرئيسية</a><span class="breadcrumb__sep">/</span><span>التقديم</span></nav>
+
+        <section class="form-page">
+          <aside class="form-page__side">
+            <span class="badge badge--accent">قبل التقديم</span>
+            <h2 style="margin-top:12px">تعليمات هامة</h2>
+            <p class="text-muted">
+              اقرأ التعليمات بعناية قبل ملء النموذج. جميع الحقول مطلوبة، وسيتم
+              رفض الطلبات التي تحتوي معلومات غير دقيقة.
+            </p>
+            <ul>
+              <li><i>١</i><span><b>معلومات صحيحة</b>استخدم اسمك الرسمي داخل القسم فقط.</span></li>
+              <li><i>٢</i><span><b>معرف Discord</b>معرف رقمي (Developer Mode) وليس اسم المستخدم.</span></li>
+              <li><i>٣</i><span><b>سبب واضح</b>اذكر خلفيتك ولماذا تناسبك هذه الشهادة.</span></li>
+              <li><i>٤</i><span><b>الرد</b>سيصلك رد المشرف خلال ٧٢ ساعة.</span></li>
+            </ul>
+          </aside>
+
+          <div class="form-card">
+            <header class="form-card__head">
+              <span class="card__eyebrow">نموذج التقديم</span>
+              <h2 style="margin-top:8px">تقديم للحصول على شهادة وحدة</h2>
+              <p class="text-muted" style="margin-top:6px;font-size:14px">
+                يرجى تعبئة كل الحقول بدقة. المعلومات المُرسلة تعتبر إقرارًا رسميًا.
+              </p>
+            </header>
+
+<form method="post" class="application-form" novalidate>
+
+    {% csrf_token %}
+
+    <div class="form-card__grid">
+
+        <!-- Unit -->
+        <div class="field field--full">
+
+            <label class="field__label" for="{{ form.unit.id_for_label }}">
+                الوحدة المُقدَّم عليها
+            </label>
+
+            {{ form.unit }}
+
+            {% for error in form.unit.errors %}
+                <span class="field__error">
+                    {{ error }}
+                </span>
+            {% endfor %}
+
+        </div>
+
+
+        <!-- Name -->
+        <div class="field">
+
+            <label class="field__label" for="{{ form.name.id_for_label }}">
+                الاسم
+            </label>
+
+            {{ form.name }}
+
+            {% for error in form.name.errors %}
+                <span class="field__error">
+                    {{ error }}
+                </span>
+            {% endfor %}
+
+        </div>
+
+
+        <!-- Rank -->
+        <div class="field">
+
+            <label class="field__label" for="{{ form.rank.id_for_label }}">
+                الرتبة
+            </label>
+
+            {{ form.rank }}
+
+            {% for error in form.rank.errors %}
+                <span class="field__error">
+                    {{ error }}
+                </span>
+            {% endfor %}
+
+        </div>
+
+
+        <!-- Reason -->
+        <div class="field field--full">
+
+            <label class="field__label" for="{{ form.reason.id_for_label }}">
+                سبب التقديم
+            </label>
+
+            {{ form.reason }}
+
+            <span class="field__hint">
+                لا يقل عن ٢٠ حرفًا.
+            </span>
+
+            {% for error in form.reason.errors %}
+                <span class="field__error">
+                    {{ error }}
+                </span>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+
+    <!-- Note -->
+    <div class="form-card__note">
+        <b>ملاحظة:</b>
+        سيتم مراجعة طلبك من قِبل إدارة الوحدة.
+    </div>
+
+
+    <!-- Agreement -->
+    <div class="field">
+
+        <label class="checkbox">
+
+            {{ form.agreed_to_terms }}
+
+            <span>
+                أقرّ بأن جميع المعلومات المُدخلة صحيحة،
+                وأتحمل مسؤولية أي معلومة مغلوطة،
+                وأوافق على قواعد ولوائح AURA CFW.
+            </span>
+
+        </label>
+
+        {% for error in form.agreed_to_terms.errors %}
+            <span class="field__error">
+                {{ error }}
+            </span>
+        {% endfor %}
+
+    </div>
+
+
+    <!-- Footer -->
+    <div class="form-card__foot">
+
+        <span class="text-dim" style="font-size:12px">
+            سيتم مراجعة طلبك يدويًا.
+        </span>
+
+        <button
+            class="btn btn--primary btn--lg"
+            type="submit"
+            data-submit
+        >
+            <span class="btn__spinner"></span>
+            <span class="btn__label">
+                إرسال الطلب
+            </span>
+        </button>
+
+    </div>
+
+</form>
+          </div>
+        </section>
+      </div>
+    </main>
+{% endblock content %}
+    
+
+{% block js %}
+    <script src="{% static 'js/apply.js' %}" defer></script>
+{% endblock js %}
+    

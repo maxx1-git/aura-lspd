@@ -1,0 +1,368 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    AURA LSPD | الصفحة الرئيسية
+{% endblock title %}
+    
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock css %}
+    
+
+{% block content %}
+        <main>
+      <section class="hero">
+        <div class="container hero__grid">
+          <div class="fade-in">
+            <span class="hero__eyebrow"
+              >وزارة الداخلية · دورات الشرطة</span
+            >
+            <h1>
+              بوابة الشهادات الرسمية <span>لأفراد وزارة الداخلية</span>
+            </h1>
+            <p class="hero__lead">
+              منصة مركزية لعرض شهادات وزارة الداخلية، القواعد التنظيمية،
+              متطلبات القبول، ومقدّمي الطلبات. صُممت لتوفر تجربة انضباطية
+              واضحة تعكس معايير الوحدات الميدانية.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary btn--lg" href="{% url 'apply' %}"
+                >تقديم طلب شهادة</a
+              >
+              <a class="btn btn--ghost btn--lg" href="{% url 'rules' %}"
+                >قراءة القواعد</a
+              >
+            </div>
+            <div class="hero__stats">
+              <div class="hero__stat">
+                <b>٣</b><span>وحدات معتمدة</span>
+              </div>
+              <div class="hero__stat">
+                <b>٢٤</b><span>ضابط حاصل على شهادة</span>
+              </div>
+              <div class="hero__stat">
+                <b>٩٧٪</b><span>معدل الالتزام</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero__panel fade-in-2" aria-label="ملخص الوحدات">
+            <h3>الوحدات المتاحة للتقديم</h3>
+            <ul>
+              <li>
+                <div>
+                  <b>وحدة المطاردات السريعة</b>
+                  <div class="text-dim" style="font-size:12px">
+                    SU · قيادة عالية السرعة
+                  </div>
+                </div>
+                <span class="badge badge--accent">مفتوح</span>
+              </li>
+              <li>
+                <div>
+                  <b>وحدة الموترسايكل</b>
+                  <div class="text-dim" style="font-size:12px">
+                    MU · دوريات دراجات
+                  </div>
+                </div>
+                <span class="badge badge--accent">مفتوح</span>
+              </li>
+              <li>
+                <div>
+                  <b>وحدة الدعم الجوي</b>
+                  <div class="text-dim" style="font-size:12px">
+                    AU · طيران وإسناد
+                  </div>
+                </div>
+                <span class="badge badge--gold">تقييم</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <header class="section-title">
+            <span class="eyebrow">الشهادات المتاحة</span>
+            <h2>ثلاث شهادات · ثلاث مستويات من التخصص</h2>
+            <p>
+              كل شهادة تفتح صلاحيات ميدانية محددة وتُلزم صاحبها بمعايير الأداء
+              الخاصة بالوحدة.
+            </p>
+          </header>
+
+          <div class="grid grid-3">
+            <article class="card card--hover cert-card">
+              <div class="cert-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
+              </div>
+              <div class="card__eyebrow">SU</div>
+              <h3 class="card__title">شهادة وحدة المطاردات السريعة</h3>
+              <p class="card__desc">
+                تؤهل حاملها لقيادة مركبات المطاردة وتنفيذ عمليات الاعتراض عالية
+                السرعة وفق بروتوكولات السلامة.
+              </p>
+              <div class="cert-card__meta">
+                <span class="badge">قيادة متقدمة</span>
+                <span class="badge">اعتراض</span>
+                <span class="badge badge--accent">مستوى ٢</span>
+              </div>
+              <div class="card__foot">
+                <span class="status status--active">التقديم متاح</span>
+                <a class="btn btn--outline" href="{% url 'speedunit' %}">تفاصيل الوحدة</a>
+              </div>
+            </article>
+
+            <article class="card card--hover cert-card">
+              <div class="cert-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l4-9h4l4 9"/></svg>
+              </div>
+              <div class="card__eyebrow">MU</div>
+              <h3 class="card__title">شهادة وحدة الموترسايكل</h3>
+              <p class="card__desc">
+                للضباط المتخصصين بدوريات الدراجات النارية في المهام الحضرية،
+                المرافقة الرسمية، والتدخل السريع.
+              </p>
+              <div class="cert-card__meta">
+                <span class="badge">دوريات</span>
+                <span class="badge">مرافقة</span>
+                <span class="badge badge--accent">مستوى ١</span>
+              </div>
+              <div class="card__foot">
+                <span class="status status--active">التقديم متاح</span>
+                <a class="btn btn--outline" href="{% url 'motorunit' %}">تفاصيل الوحدة</a>
+              </div>
+            </article>
+
+            <article class="card card--hover cert-card">
+              <div class="cert-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l20-8-6 20-4-8-10-4z"/></svg>
+              </div>
+              <div class="card__eyebrow">AU</div>
+              <h3 class="card__title">شهادة وحدة الدعم الجوي</h3>
+              <p class="card__desc">
+                لتشغيل المروحيات وأنظمة الرصد الجوي، تقديم الإسناد للوحدات
+                الأرضية، وتنفيذ عمليات البحث والإنقاذ.
+              </p>
+              <div class="cert-card__meta">
+                <span class="badge">طيران</span>
+                <span class="badge">رصد</span>
+                <span class="badge badge--gold">مستوى ٣</span>
+              </div>
+              <div class="card__foot">
+                <span class="status status--pending">قيد التقييم</span>
+                <a class="btn btn--outline" href="{% url 'airunit' %}">تفاصيل الوحدة</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight">
+        <div class="container">
+          <header class="section-title">
+            <span class="eyebrow">آخر الحاصلين على الشهادات</span>
+            <h2>أحدث الضباط المعتمدين</h2>
+          </header>
+          <div class="grid grid-3">
+            <div class="officer">
+              <div class="officer__avatar">م.ك</div>
+              <div>
+                <div class="officer__name">م. خالد الغامدي</div>
+                <div class="officer__meta">
+                  <span>ملازم أول</span><span>·</span><span>Badge #4218</span>
+                </div>
+                <div style="margin-top:8px" class="row">
+                  <span class="badge badge--accent">SU</span>
+                  <span class="status status--active">فعّال</span>
+                </div>
+              </div>
+            </div>
+            <div class="officer">
+              <div class="officer__avatar">س.ع</div>
+              <div>
+                <div class="officer__name">س. عبدالرحمن الحربي</div>
+                <div class="officer__meta">
+                  <span>رقيب</span><span>·</span><span>Badge #3971</span>
+                </div>
+                <div style="margin-top:8px" class="row">
+                  <span class="badge badge--accent">MU</span>
+                  <span class="status status--active">فعّال</span>
+                </div>
+              </div>
+            </div>
+            <div class="officer">
+              <div class="officer__avatar">ن.ص</div>
+              <div>
+                <div class="officer__name">ن. صالح الدوسري</div>
+                <div class="officer__meta">
+                  <span>نقيب</span><span>·</span><span>Badge #5104</span>
+                </div>
+                <div style="margin-top:8px" class="row">
+                  <span class="badge badge--gold">AU</span>
+                  <span class="status status--pending">تحت التقييم</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight">
+        <div class="container">
+          <header class="section-title">
+            <span class="eyebrow">القيادة والإشراف</span>
+            <h2>مسؤولو الدورات والوحدات</h2>
+          </header>
+          <div class="stack">
+            <div class="supervisor">
+              <div class="supervisor__avatar">م.ر</div>
+              <div>
+                <div class="supervisor__role">مسؤول دورات الوزارة</div>
+                <div class="officer__name" style="font-size:18px">
+                 العميد ماكس رولينز
+                </div>
+                <p class="text-muted" style="margin-top:6px;font-size:14px">
+                  مسؤول عن اعتماد جميع الشهادات، إدارة الاختبارات، ومتابعة
+                  أداء الوحدات.
+                </p>
+              </div>
+              <a class="btn btn--ghost" href="{% url 'rules' %}">القواعد العامة</a>
+            </div>
+            <div class="grid grid-3">
+              <div class="supervisor">
+                <div class="supervisor__avatar">ع.ك</div>
+                <div>
+                  <div class="supervisor__role">مسؤول وحدة المطاردات السريعة</div>
+                  <div class="officer__name" style="font-size:16px">
+                   المقدم علي كلاي
+                  </div>
+                </div>
+              </div>
+              <div class="supervisor">
+                <div class="supervisor__avatar">ا.ص</div>
+                <div>
+                  <div class="supervisor__role">مسؤول وحدة الموترسايكل</div>
+                  <div class="officer__name" style="font-size:16px">
+                   المقدم ادم الصقر
+                  </div>
+                </div>
+              </div>
+              <div class="supervisor">
+                <div class="supervisor__avatar">م.ص</div>
+                <div>
+                  <div class="supervisor__role">مسؤول وحدة الدعم الجوي</div>
+                  <div class="officer__name" style="font-size:16px">
+                    العميد محمد مصطفى
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <header class="section-title">
+            <span class="eyebrow">إجراءات سريعة</span>
+            <h2>ابدأ من هنا</h2>
+          </header>
+          <div class="quick-actions">
+            <a class="quick-action" href="{% url 'apply' %}">
+              <span class="quick-action__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+              <span><b>تقديم طلب</b><span>ابدأ تقديمك لأي وحدة</span></span>
+            </a>
+            <a class="quick-action" href="{% url 'rules' %}">
+              <span class="quick-action__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h14a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              </span>
+              <span><b>القواعد والشروط</b><span>اقرأ الأنظمة قبل التقديم</span></span>
+            </a>
+            <a class="quick-action" href="{% url 'speedunit' %}">
+              <span class="quick-action__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              </span>
+              <span><b>الوحدات</b><span>استعرض تفاصيل كل وحدة</span></span>
+            </a>
+            <a class="quick-action" href="login.html">
+              <span class="quick-action__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12H3M11 8l-4 4 4 4M21 3v18"/></svg>
+              </span>
+              <span><b>الدخول للحساب</b><span>لضباط لديهم حساب</span></span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+{% endblock content %}
+    
+
+
+{% block js %}
+  
+{% endblock js %}
+  
+
+
+{% block footer %}
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <div class="brand" style="margin-bottom:12px">
+              <span class="brand__mark">LSPD</span>
+              <span class="brand__text">AURA LSPD<small>MDT · SPECIAL UNITS</small></span>
+            </div>
+            <p class="text-muted" style="font-size:14px;max-width:38ch">
+             بوابة الشهادات الرسمية لأفراد وزارة الداخلية مصممة لإدارة قوائم الشهادات،
+              الوحدات، والتقديمات بشكل انضباطي.
+            </p>
+          </div>
+          <div>
+            <h4>الوحدات</h4>
+            <a href="{% url 'speedunit' %}">المطاردات السريعة</a>
+            <a href="{% url 'motorunit' %}">الموترسايكل</a>
+            <a href="{% url 'airunit' %}">الدعم الجوي</a>
+          </div>
+          <div>
+            <h4>روابط</h4>
+            <a href="{% url 'rules' %}">القواعد</a>
+            <a href="{% url 'apply' %}">التقديم</a>
+            <a href="login.html">تسجيل الدخول</a>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>© <span data-year>2026</span> AURA CFW <span class="text-dim">· جميع الحقوق محفوظة</span></span>
+          <div class="developer-card">
+            <div class="developer-card__info">
+              <span class="developer-card__badge">طوّر بواسطة</span>
+              <span class="developer-card__title">Bola Max</span>
+              <span class="developer-card__role">Full Stack Developer</span>
+            </div>
+            <div class="developer-card__links">
+              <a class="developer-card__link" href="https://bolamax.vercel.app/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+                <span>Portfolio</span>
+              </a>
+              <a class="developer-card__link" href="https://discord.gg/zjc8N37bwQ" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.942 5.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.586 11.586 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3 17.392 17.392 0 0 0-2.868 11.662 15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.638 10.638 0 0 1-1.706-.83c.143-.106.283-.217.418-.331a11.664 11.664 0 0 0 10.118 0c.137.114.277.225.418.331-.544.328-1.116.606-1.71.832a12.58 12.58 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM8.678 14.813a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.929 1.929 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/></svg>
+                <span>Discord</span>
+              </a>
+              <a class="developer-card__link" href="https://github.com/maxx1-git" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.833.092-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/></svg>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+{% endblock footer %}
+  

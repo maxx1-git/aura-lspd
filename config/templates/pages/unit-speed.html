@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+        AURA LSPD | المطاردات السريعة
+{% endblock title %}
+
+
+{% block css %}
+        <link rel="stylesheet" href="{% static 'css/unit.css' %}">
+{% endblock css %}
+    
+    
+
+
+{% block content %}
+        <main>
+      <div class="container">
+        <nav class="breadcrumb"><a href="{% url 'index' %}">الرئيسية</a><span class="breadcrumb__sep">/</span><a href="{% url 'index' %}">الوحدات</a><span class="breadcrumb__sep">/</span><span>المطاردات السريعة</span></nav>
+
+        <section class="unit-hero">
+          <div>
+            <div class="row" style="margin-bottom:8px">
+              <span class="badge badge--accent">SU</span>
+              <span class="status status--active">التقديم مفتوح</span>
+            </div>
+            <h1>وحدة المطاردات السريعة</h1>
+            <p class="text-muted" style="max-width:60ch">
+              الوحدة المسؤولة عن اعتراض المركبات المخالفة وتنفيذ المطاردات
+              الميدانية وفق أعلى معايير السلامة، بقيادة تقنية متقدمة وتنسيق
+              مستمر مع غرفة العمليات.
+            </p>
+          </div>
+          <div class="unit-hero__icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
+          </div>
+        </section>
+
+        <section class="unit-body">
+          <div class="stack" style="gap:32px">
+            <div>
+              <h3>نظرة عامة</h3>
+              <p class="text-muted">
+                تعمل وحدة المطاردات السريعة كذراع تدخّل ميداني للقسم في الحالات
+                التي تتطلب سرعة استجابة عالية وقيادة انضباطية دقيقة. أعضاء الوحدة
+                مدرّبون على تقنيات الاعتراض، إدارة السرعة، وقراءة الطرق.
+              </p>
+            </div>
+
+            <div>
+              <h3>المسؤوليات</h3>
+              <ul>
+                <li>اعتراض المركبات المشتبه بها وفق بروتوكول واضح.</li>
+                <li>تنفيذ عمليات المطاردة بأقل ضرر جانبي ممكن.</li>
+                <li>التنسيق مع الدوريات العادية لإغلاق نقاط العبور.</li>
+                <li>رفع تقرير مفصّل بعد كل عملية.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3>القواعد الخاصة</h3>
+              <ul>
+                <li>عدم تجاوز السرعة القصوى داخل المناطق السكنية إلا بإذن.</li>
+                <li>إيقاف المطاردة فورًا عند وجود خطر على المدنيين.</li>
+                <li>الالتزام باستخدام مركبات الوحدة المخصصة فقط.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3>متطلبات القبول</h3>
+              <ul>
+                <li>رتبة رقيب فيما اعلى</li>
+                <li>اجتياز اختبار قيادة عالي السرعة.</li>
+                <li>سجل خالٍ من العقوبات لآخر ٣٠ يومًا.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3>الحاصلون على الشهادة</h3>
+              <div class="grid grid-3">
+                <div class="officer">
+                  <div class="officer__avatar">م.ك</div>
+                  <div>
+                    <div class="officer__name">م. خالد الغامدي</div>
+                    <div class="officer__meta"><span>ملازم أول</span><span>#4218</span></div>
+                    <div style="margin-top:6px"><span class="status status--active">فعّال</span></div>
+                  </div>
+                </div>
+                <div class="officer">
+                  <div class="officer__avatar">ي.ح</div>
+                  <div>
+                    <div class="officer__name">ي. يوسف الحازمي</div>
+                    <div class="officer__meta"><span>نقيب</span><span>#4302</span></div>
+                    <div style="margin-top:6px"><span class="status status--active">فعّال</span></div>
+                  </div>
+                </div>
+                <div class="officer">
+                  <div class="officer__avatar">ر.ع</div>
+                  <div>
+                    <div class="officer__name">ر. راكان العتيبي</div>
+                    <div class="officer__meta"><span>ملازم</span><span>#4477</span></div>
+                    <div style="margin-top:6px"><span class="status status--pending">مراقبة</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="unit-side">
+            <div class="supervisor">
+              <div class="supervisor__avatar">ع.ك</div>
+              <div>
+                <div class="supervisor__role">مسؤول الوحدة</div>
+                <div class="officer__name" style="font-size:16px">المقدم علي كلاي</div>
+              </div>
+            </div>
+            <div class="supervisor">
+              <div class="supervisor__avatar">Soon</div>
+              <div>
+                <div class="supervisor__role">نائب مسؤول الوحدة</div>
+                <div class="officer__name" style="font-size:16px">منصب شاغر</div>
+              </div>
+            </div>
+            <a class="btn btn--primary btn--lg btn--block" href="{% url 'apply' %}">تقديم على هذه الشهادة</a>
+            <a class="btn btn--ghost btn--block" href="{% url 'rules' %}">قراءة القواعد</a>
+          </aside>
+        </section>
+      </div>
+    </main>
+{% endblock content %}
+    
+
+{% block js %}
+    
+{% endblock js %}
+    
